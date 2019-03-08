@@ -20,11 +20,12 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuardGuard } from './services/auth-guard.guard';
 
 const appRoutes: Routes = [
   { path: '',      redirectTo: '/home' ,pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent  ,canActivate:[AuthGuardGuard]},
   { path: 'login', component: LoginComponent },
 ];
 
