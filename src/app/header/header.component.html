@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <span style="padding-right:10px;">Contact Managment System</span>
+  <a routerLinkActive="active" mat-button routerLink='dashboard'>DashBoard</a>
+  
+  <button routerLinkActive="active" mat-button routerLink='home' >Home</button>
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+
+  <div *ngIf="af.user | async as user; else showLogin">
+    <a routerLinkActive="active" mat-button (click)="logout()">Logout {{ user.displayName }} </a>
+  </div>
+  <ng-template #showLogin>
+    <a routerLinkActive="active" mat-button (click)="login()">Login with Google</a>
+  </ng-template>
+
+</mat-toolbar>
